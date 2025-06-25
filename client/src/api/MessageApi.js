@@ -1,11 +1,12 @@
 
-
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+const BASE_URL = import.meta.env.VITE_MESSAGE_URL;
+
 
 export const messageApi = createApi({
   reducerPath: "messageApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/api/v1/message",
+    baseUrl: BASE_URL,
     credentials: "include",
   }),
   endpoints: (builder) => ({

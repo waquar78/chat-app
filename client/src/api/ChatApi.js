@@ -1,11 +1,14 @@
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+
+const BASE_URL = import.meta.env.VITE_CHAT_URL;
+
 // yeh baseQuery bana ke rakha hai har API call ke liye
 export const chatApi = createApi({
   reducerPath: "chatApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/api/v1/chat",
+    baseUrl: BASE_URL,
     credentials: "include", 
   }),
   endpoints: (builder) => ({

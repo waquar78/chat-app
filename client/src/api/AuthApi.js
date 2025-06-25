@@ -1,11 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { setAllUser, setUser, userLogout } from '../redux/authSlice';
 
-  
+//  Env variable se base URL le rahe hain
+const BASE_URL = import.meta.env.VITE_USER_URL;
+;
+
 export const AuthApi = createApi({
   reducerPath: 'AuthApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8080/api/v1/user',
+    baseUrl: BASE_URL,
     credentials: 'include',
   }),
   endpoints: (builder) => ({
@@ -82,7 +85,7 @@ export const AuthApi = createApi({
         method: "POST",
         body: formData,
       }),
-      async onQueryStarted(_, { queryFulfilled, dispatch }) {
+      async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           console.log("Profile updated successfully:", data);
@@ -94,6 +97,10 @@ export const AuthApi = createApi({
   }),
 });
 
-
-// Export hooks for usage in functional components
-export const { useRegisterUserMutation, useLoginUserMutation,useLogoutUerMutation,useGetAlluserQuery,useUploadProfilePicMutation } = AuthApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useLogoutUerMutation,
+  useGetAlluserQuery,
+  useUploadProfilePicMutation
+} = AuthApi;
