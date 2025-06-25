@@ -2,7 +2,7 @@ import Chat from "../models/chat.js";
 import Message from "../models/message.js";
 import { getSocketInstance } from "../socket/socket.js";
 
-// ✅ Send Message
+//  Send Message
 export const sendMessage = async (req, res) => {
   try {
     const senderId = req.user.userId;
@@ -41,7 +41,7 @@ export const sendMessage = async (req, res) => {
   }
 };
 
-// ✅ Get All Messages
+// Get All Messages
 export const getAllMessageChat = async (req, res) => {
   try {
     const { chatId } = req.params;
@@ -79,7 +79,7 @@ export const getAllMessageChat = async (req, res) => {
   }
 };
 
-// ✅ Delete Message (with real-time emit)
+//  Delete Message (with real-time emit)
 export const deleteMessage = async (req, res) => {
   try {
     const { messageId } = req.params;
@@ -93,7 +93,7 @@ export const deleteMessage = async (req, res) => {
       });
     }
 
-    // ✅ Socket emit for delete
+    //  Socket emit for delete
     const io = getSocketInstance();
     io.to(deleted.chat.toString()).emit("delete_message", {
       messageId: deleted._id,
@@ -113,7 +113,7 @@ export const deleteMessage = async (req, res) => {
   }
 };
 
-// ✅ Update Message (with real-time emit)
+//  Update Message (with real-time emit)
 export const updateMessage = async (req, res) => {
   try {
     const { messageId } = req.params;
@@ -132,7 +132,7 @@ export const updateMessage = async (req, res) => {
       });
     }
 
-    // ✅ Socket emit for update
+    // Socket emit for update
     const io = getSocketInstance();
     io.to(updated.chat.toString()).emit("update_message", updated);
 

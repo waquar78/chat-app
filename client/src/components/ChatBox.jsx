@@ -115,7 +115,7 @@ const ChatBox = ({ setShowChat }) => {
       _id: res?.data?.data?._id,
     });
 
-    // yaha add kiya hai sidebar update ke liye
+  //this is for sidebar update
     dispatch(
       updateUserChatMeta({
         userId: selectedUser._id,
@@ -181,10 +181,6 @@ const ChatBox = ({ setShowChat }) => {
         </div>
         <h2 className="font-semibold flex items-center gap-2">{selectedUser.name}</h2>
       </div>
-
-      {/* {typingStatus && (
-        <div className="text-xs text-gray-400 px-4 py-1">{typingStatus}</div>
-      )} */}
 
       <div className="flex-1 overflow-y-auto px-4 py-3 bg-gray-50 space-y-3">
         {isLoading ? (

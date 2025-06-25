@@ -1,4 +1,3 @@
-// src/api/chatApi.js
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -7,7 +6,7 @@ export const chatApi = createApi({
   reducerPath: "chatApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8080/api/v1/chat",
-    credentials: "include", // taaki cookies bhi jaye (JWT token ke liye)
+    credentials: "include", 
   }),
   endpoints: (builder) => ({
 

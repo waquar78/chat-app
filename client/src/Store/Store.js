@@ -1,22 +1,3 @@
-// import {configureStore} from "@reduxjs/toolkit"
-// import { AuthApi } from "../api/AuthApi"
-// import authReducer from "../redux/authSlice.js"
-// import chatReducer from "../redux/chatSlice.js"
-// import { chatApi } from "../api/ChatApi.js"
-// import { messageApi } from "../api/MessageApi.js"
-
-// export const store=configureStore({
-//     reducer:{
-//       auth:authReducer,
-//       chat:chatReducer,
-//       [AuthApi.reducerPath]:AuthApi.reducer,
-//       [chatApi.reducerPath]:chatApi.reducer,
-//       [messageApi.reducerPath]:messageApi.reducer
-//     },
-//     middleware:(getDefautlmiddleware)=>
-//         getDefautlmiddleware().concat(AuthApi.middleware,messageApi.middleware,chatApi.middleware)
-    
-// })
 
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import { persistStore, persistReducer } from 'redux-persist'
@@ -38,7 +19,7 @@ const rootReducer = combineReducers({
   [messageApi.reducerPath]: messageApi.reducer
 })
 
-//  2️⃣ persist config banao
+
 const persistConfig = {
   key: 'root',
   storage,
