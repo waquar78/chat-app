@@ -19,6 +19,9 @@ const authSlice = createSlice({
     setSelectedUser: (state, action) => {
       state.selectedUser = action.payload;
     },
+    setUserProfilePic: (state, action) => {
+      state.user.profile = action.payload;
+    },
     userLogout: (state) => {
       state.user = null;
       state.allUsers = [];
@@ -53,6 +56,7 @@ const authSlice = createSlice({
 
 export const {
   setUser,
+  setUserProfilePic,
   setAllUser,
   setSelectedUser,
   userLogout,
