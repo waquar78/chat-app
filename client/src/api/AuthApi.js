@@ -89,6 +89,7 @@ export const AuthApi = createApi({
         try {
           const { data } = await queryFulfilled;
           console.log("Profile updated successfully:", data);
+           dispatch(setUserProfilePic(data.profilePic));
         } catch (error) {
           console.log("Upload failed:", error);
         }
