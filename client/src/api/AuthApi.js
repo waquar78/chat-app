@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-<<<<<<< HEAD
+
 import { setAllUser, setUser, userLogout,setUserProfilePic } from '../redux/authSlice';
-=======
+
 import { setAllUser, setUser, userLogout ,setUserProfilePic} from '../redux/authSlice';
->>>>>>> e8a9ebda1cacfa69e9f184307c67fe6d0097cdec
+
 
 //  Env variable se base URL le rahe hain
 const BASE_URL = import.meta.env.VITE_USER_URL;
@@ -89,11 +89,11 @@ export const AuthApi = createApi({
         method: "POST",
         body: formData,
       }),
-<<<<<<< HEAD
+
       async onQueryStarted(_, { queryFulfilled ,dispatch}) {
-=======
+
       async onQueryStarted(_, { queryFulfilled,dispatch }) {
->>>>>>> e8a9ebda1cacfa69e9f184307c67fe6d0097cdec
+
         try {
           const { data } = await queryFulfilled;
           console.log("Profile updated successfully:", data);
