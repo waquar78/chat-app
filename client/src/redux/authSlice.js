@@ -60,6 +60,7 @@ const authSlice = createSlice({
 
 export const {
   setUser,
+  setUserProfilePic,
   setAllUser,
   setSelectedUser,
   setUserProfilePic,

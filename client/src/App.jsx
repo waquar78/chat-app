@@ -14,7 +14,10 @@ function App() {
   const user = useSelector((state) => state.auth.user);
 
  
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8a9ebda1cacfa69e9f184307c67fe6d0097cdec
   useEffect(() => {
     socket.on("update_user_status", ({ userId, isOnline }) => {
       dispatch(updateUserStatus({ userId, isOnline }));

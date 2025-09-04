@@ -5,7 +5,11 @@ export const generateToken= (res,user,message,)=>{
   return res.status(200).cookie("token",token,{
     httpOnly: true,
     sameSite: "None",
+<<<<<<< HEAD
     secure:true,
+=======
+     secure: true, 
+>>>>>>> e8a9ebda1cacfa69e9f184307c67fe6d0097cdec
     maxAge: 24 * 60 * 60 * 1000, // 1 day
 }).json({
     success:true,
