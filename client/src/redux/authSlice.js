@@ -63,7 +63,6 @@ export const {
   setUserProfilePic,
   setAllUser,
   setSelectedUser,
-  setUserProfilePic,
   userLogout,
   updateUserStatus,
   updateUserChatMeta,
