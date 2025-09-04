@@ -21,7 +21,7 @@ const userSchema=new mongoose.Schema({
       },
       lastSeen: {
         type: Date,
-      }
+      } 
 },{timestamps:true})
 
  const User=  mongoose.model("User",userSchema);

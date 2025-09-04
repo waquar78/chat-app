@@ -32,7 +32,7 @@ const Login = () => {
     if(isSuccess){
       toast.success("login successfull");
       setFormData({ email: "", password: "" });
-      navigate("/")
+      navigate("/") 
       
     }
     if (isError) {

@@ -4,6 +4,7 @@ const initialState = {
   user: null,
   allUsers: [],
   selectedUser: null,
+  selectedAi: null,
 };
 
 const authSlice = createSlice({
@@ -13,11 +14,17 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
+    setSelectedAi: (state, action) => {
+    state.selectedAi = action.payload;
+  },
     setAllUser: (state, action) => {
       state.allUsers = action.payload;
     },
     setSelectedUser: (state, action) => {
       state.selectedUser = action.payload;
+    },
+    setUserProfilePic: (state, action) => {
+      state.user.profile = action.payload;
     },
     userLogout: (state) => {
       state.user = null;
@@ -30,19 +37,19 @@ const authSlice = createSlice({
       if (user) user.isOnline = isOnline;
     },
     updateUserChatMeta: (state, action) => {
-  const { userId, lastMessage, time } = action.payload;
-  const user = state.allUsers.find((u) => u._id === userId);
-  if (user) {
-    console.log("⚡ updateUserChatMeta chala", userId);
-    user.lastMessage = lastMessage;
-    user.lastMessageTime = time;
+      const { userId, lastMessage, time } = action.payload;
+      const user = state.allUsers.find((u) => u._id === userId);
+      if (user) {
+        console.log("⚡ updateUserChatMeta chala", userId);
+        user.lastMessage = lastMessage;
+        user.lastMessageTime = time;
 
-    // unread count increase kar do
-    if (state.selectedUser?._id !== userId) {
-      user.unreadCount = (user.unreadCount || 0) + 1;
-    }
-  }
-},
+        // unread count increase kar do
+        if (state.selectedUser?._id !== userId) {
+          user.unreadCount = (user.unreadCount || 0) + 1;
+        }
+      }
+    },
     clearUnreadCount: (state, action) => {
       const userId = action.payload;
       const user = state.allUsers.find((u) => u._id === userId);
@@ -55,10 +62,13 @@ export const {
   setUser,
   setAllUser,
   setSelectedUser,
+  setUserProfilePic,
   userLogout,
   updateUserStatus,
   updateUserChatMeta,
   clearUnreadCount,
+  setSelectedAi
 } = authSlice.actions;
 
 export default authSlice.reducer;
+ 

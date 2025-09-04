@@ -7,4 +7,4 @@ const router=express.Router()
 router.route("/create").post(verifyToken,createChat),
 router.route("/my-chats").get(verifyToken,userChat)
 
-export default router
+export default router 

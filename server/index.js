@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import dbConnection from "./utils/database.js";
 import userRoutes from "./routes/userRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -14,7 +15,7 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app); // Express server wrap in HTTP server
 
-dbConnection();
+dbConnection(); 
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,6 +30,7 @@ const port = process.env.PORT;
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/chat", chatRoutes);
 app.use("/api/v1/message", messageRoutes);
+app.use("/api/v1/ai",aiRoutes)
 
 // Socket setup
 setupSocket(server);

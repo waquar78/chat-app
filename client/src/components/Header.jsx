@@ -25,7 +25,7 @@ const logoutHandler = async () => {
     await persistor.purge(); // persist storage clear kare
     await persistor.flush(); // ensure persist sync
     toast.success("Logout successful");
-    navigate("/login");
+    navigate("/");
   } catch (error) {
     toast.error("Logout failed");
   }
@@ -35,7 +35,7 @@ const logoutHandler = async () => {
   return (
     <div className="h-14 bg-green-600 flex items-center justify-between px-4 border-b shadow-sm text-white">
       {/* Left: App Title or Logo */}
-      <h2 className="text-lg font-semibold">ChatApp</h2>
+      <h2 className="text-lg font-semibold">Quick_Chat</h2>
 
     
 

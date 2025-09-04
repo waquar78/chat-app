@@ -9,25 +9,23 @@ import chatReducer from "../redux/chatSlice"
 import { AuthApi } from "../api/AuthApi"
 import { chatApi } from "../api/ChatApi"
 import { messageApi } from "../api/MessageApi"
-
+import { aiApi } from "../api/AiApi"   
 
 const rootReducer = combineReducers({
   auth: authReducer,
   chat: chatReducer,
   [AuthApi.reducerPath]: AuthApi.reducer,
   [chatApi.reducerPath]: chatApi.reducer,
-  [messageApi.reducerPath]: messageApi.reducer
+  [messageApi.reducerPath]: messageApi.reducer,
+  [aiApi.reducerPath]: aiApi.reducer,   
 })
-
 
 const persistConfig = {
   key: 'root',
   storage,
 }
 
-
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -37,10 +35,9 @@ export const store = configureStore({
     }).concat(
       AuthApi.middleware,
       chatApi.middleware,
-      messageApi.middleware
+      messageApi.middleware,
+      aiApi.middleware   
     ),
 })
 
 export const persistor = persistStore(store)
-
- 

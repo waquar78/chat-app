@@ -95,7 +95,7 @@ export const logout= async(req,res)=>{
 
         })
     }
-}
+} 
 
 //get all user list
 
@@ -159,3 +159,4 @@ export const uploadProfile = async (req, res) => {
     });
   }
 };
+ 

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { setAllUser, setUser, userLogout } from '../redux/authSlice';
+import { setAllUser, setUser, userLogout,setUserProfilePic } from '../redux/authSlice';
 
 //  Env variable se base URL le rahe hain
 const BASE_URL = import.meta.env.VITE_USER_URL;
@@ -61,7 +61,7 @@ export const AuthApi = createApi({
         }
       },
     }),
-
+ 
     // Get All Users
     getAlluser: builder.query({
       query: () => ({
@@ -85,10 +85,11 @@ export const AuthApi = createApi({
         method: "POST",
         body: formData,
       }),
-      async onQueryStarted(_, { queryFulfilled }) {
+      async onQueryStarted(_, { queryFulfilled ,dispatch}) {
         try {
           const { data } = await queryFulfilled;
           console.log("Profile updated successfully:", data);
+           dispatch(setUserProfilePic(data.profilePic));
         } catch (error) {
           console.log("Upload failed:", error);
         }

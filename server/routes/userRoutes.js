@@ -15,3 +15,4 @@ router.route("/users").get(verifyToken, getAllUsers);
 router.route("/upload").post(verifyToken, upload.single("profile"), uploadProfile);
 
 export default router;
+ 

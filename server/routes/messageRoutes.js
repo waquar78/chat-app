@@ -9,4 +9,4 @@ router.route("/getmessages/:chatId").get(verifyToken,getAllMessageChat);
 router.route("/delete/:messageId").delete(verifyToken, deleteMessage);
 router.route("/update/:messageId").put(verifyToken, updateMessage);
 
-export default router
+export default router 

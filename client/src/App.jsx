@@ -13,12 +13,7 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
 
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      dispatch(setUser(storedUser));
-    }
-  }, [dispatch]);
+ 
 
   useEffect(() => {
     socket.on("update_user_status", ({ userId, isOnline }) => {
